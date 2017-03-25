@@ -37,6 +37,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -115,11 +116,24 @@
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.listBox1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(9, 136);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.ScrollAlwaysVisible = true;
+            this.listBox1.Size = new System.Drawing.Size(237, 112);
+            this.listBox1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 133);
+            this.ClientSize = new System.Drawing.Size(259, 262);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
@@ -144,6 +158,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

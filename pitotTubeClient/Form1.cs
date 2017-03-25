@@ -95,12 +95,10 @@ namespace pitotTubeClient
                 string data = serialPort1.ReadLine();
                 if (!string.IsNullOrEmpty(data))
                 {
-                    
-
                     //delegateを呼び出す
                     Invoke(new AppendTextDelegate(packet_restortion), data);
 
-                    Console.WriteLine("風速[m/s]: {0}", data);
+                    Console.WriteLine("{0}", data);
                 }
             }
             catch (Exception ex)
@@ -115,7 +113,15 @@ namespace pitotTubeClient
     //委譲先の関数
     private void packet_restortion(string data)
     {
-        label3.Text = data;
+        if (data.StartsWith("#"))
+        {
+            listBox1.Items.Add(data);
+        }
+        else
+        {
+            label3.Text = data;
+        }
+        
     }
 
     private void label3_Click(object sender, EventArgs e)
