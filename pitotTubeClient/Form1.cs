@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace pitotTubeClient
 {
@@ -119,7 +120,32 @@ namespace pitotTubeClient
         }
         else
         {
-            label3.Text = data;
+            String[] element=data.Split(',');
+            
+            double p = Double.Parse(element[0]);
+            double y = Double.Parse(element[1]);
+            double t = Double.Parse(element[2]);
+            double pa = Double.Parse(element[3]);
+            double ya = Double.Parse(element[4]);
+
+            DataPoint point = new DataPoint(p, y);
+            point.MarkerSize = 5;
+
+            DataPoint point2 = new DataPoint(pa, ya);
+            point2.MarkerSize = 10;
+
+            chart1.Series[0].Points.Add(point);
+            
+            chart1.Series[1].Points.Add(point2);
+
+            if (chart1.Series[0].Points.Count > 50)
+            {
+                chart1.Series[0].Points.RemoveAt(0);
+            }
+                if (chart1.Series[0].Points.Count > 2)
+                {
+                    chart1.Series[1].Points.RemoveAt(0);
+                }
         }
         
     }
