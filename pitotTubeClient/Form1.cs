@@ -134,19 +134,27 @@ namespace pitotTubeClient
             DataPoint point2 = new DataPoint(pa, ya);
             point2.MarkerSize = 10;
 
+            DataPoint column = new DataPoint(0, t);
+
             chart1.Series[0].Points.Add(point);
             
             chart1.Series[1].Points.Add(point2);
+
+            chart2.Series[0].Points.Add(column);
 
             if (chart1.Series[0].Points.Count > 50)
             {
                 chart1.Series[0].Points.RemoveAt(0);
             }
-                if (chart1.Series[0].Points.Count > 2)
+                if (chart1.Series[1].Points.Count > 1)
                 {
                     chart1.Series[1].Points.RemoveAt(0);
                 }
-        }
+                if (chart2.Series[0].Points.Count > 1)
+                {
+                    chart2.Series[0].Points.RemoveAt(0);
+                }
+            }
         
     }
 

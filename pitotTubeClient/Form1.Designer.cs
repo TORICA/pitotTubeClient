@@ -33,6 +33,9 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 10D);
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +46,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -180,11 +185,37 @@
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
+            // chart2
+            // 
+            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisY.Crossing = 0D;
+            chartArea2.AxisY.MajorGrid.Interval = 10D;
+            chartArea2.AxisY.Maximum = 100D;
+            chartArea2.AxisY.Minimum = 0D;
+            chartArea2.InnerPlotPosition.Auto = false;
+            chartArea2.InnerPlotPosition.Height = 100F;
+            chartArea2.InnerPlotPosition.Width = 100F;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 100F;
+            chartArea2.Position.Width = 100F;
+            this.chart2.ChartAreas.Add(chartArea2);
+            this.chart2.Location = new System.Drawing.Point(514, 9);
+            this.chart2.Name = "chart2";
+            series3.ChartArea = "ChartArea1";
+            series3.Name = "Series1";
+            series3.Points.Add(dataPoint1);
+            this.chart2.Series.Add(series3);
+            this.chart2.Size = new System.Drawing.Size(32, 239);
+            this.chart2.TabIndex = 10;
+            this.chart2.Text = "chart2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 262);
+            this.ClientSize = new System.Drawing.Size(558, 262);
+            this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label4);
@@ -198,6 +229,7 @@
             this.Text = "PitotTubeClient(5HP)";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,6 +247,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
     }
 }
 
